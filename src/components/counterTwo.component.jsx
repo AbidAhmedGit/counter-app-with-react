@@ -16,7 +16,7 @@ export default class CounterTwo extends Component {
         })
     }
 
-    handleIncrement(inc=1){
+    handleIncrement= (inc=1) => {
         this.setState(prevState => {
             return {count: (prevState.count +inc)}
         })
@@ -27,7 +27,7 @@ export default class CounterTwo extends Component {
             <>
             <button onClick={()=>this.handleDecrement()}>-</button>
             <span>{this.state.count}</span>
-            <button onClick={()=>this.handleIncrement()}>+</button>
+            <button onClick={this.handleIncrement()}>+</button>
             </>
         )
     }
