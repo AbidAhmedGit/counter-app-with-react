@@ -34,18 +34,17 @@ export default class CounterTest extends Component {
     return (
       <div>
         <>
-            <div>Counter Application</div>
-            <br />
-            <br />
+            <div>Counter Application - class</div>
+
             <div>
                 <button onClick={()=>{this.handleDec()}}>-</button>
                 <span>{this.state.count}</span>
                 <button onClick={()=>{this.handleInc()}}>+</button>
             </div>
-            <br />
             <div>
                 <button type="submit" onClick={()=>{this.handleReset()}}>Reset</button>
             </div>
+            <br />
         </>
       </div>
     )
