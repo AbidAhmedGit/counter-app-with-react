@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { ThemeContext, MsgContext } from '../App';
 
 export default class CounterTest extends Component {
     constructor(props) {
@@ -31,22 +32,33 @@ export default class CounterTest extends Component {
     }
 
   render() {
+    // console.log('counter-class')
     return (
-      <div>
-        <>
-            <div>Counter Application - class</div>
-
-            <div>
-                <button onClick={()=>{this.handleDec()}}>-</button>
-                <span>{this.state.count}</span>
-                <button onClick={()=>{this.handleInc()}}>+</button>
-            </div>
-            <div>
-                <button type="submit" onClick={()=>{this.handleReset()}}>Reset</button>
-            </div>
-            <br />
-        </>
-      </div>
+            <>
+            <ThemeContext.Consumer>
+                {(value) => {
+                    return(
+                        <div>
+                            <h1>Counter Application - class</h1>
+                            <MsgContext.Consumer>
+                                {(value) => {
+                                    return <h2>{value}</h2>
+                                }}
+                            </MsgContext.Consumer>
+                            <div>
+                                <button style={value} onClick={()=>{this.handleDec()}}>-</button>
+                                <span>{this.state.count}</span>
+                                <button style={value} onClick={()=>{this.handleInc()}}>+</button>
+                            </div>
+                            <div>
+                                <button type="submit" onClick={()=>{this.handleReset()}}>Reset</button>
+                            </div>
+                            <br />
+                        </div>
+                    )
+                }}
+            </ThemeContext.Consumer>
+            </>
     )
   }
 }
